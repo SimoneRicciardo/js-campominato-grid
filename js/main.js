@@ -1,24 +1,27 @@
-containerGridDom = document.getElementById('container-grid');
-document.getElementById('container-grid').style.visibility = "hidden";
+let containerGridDom = document.getElementById('container-grid');
 
-for( let i = 1; i <= 100; i++ ) {
-
-    const square = generateSquare();
-    
-    square.addEventListener('click',
-        function (){
-            this.classList.toggle('clicked');
-        }
-    );
-
-    containerGridDom.append(square);
-}
+let title = document.querySelector('.title')
 
 let MainButton = document.getElementById('main-button');
 MainButton.addEventListener('click', function(){
 
-    document.getElementById('container-grid').style.visibility = "visible";
-    console.log(containerGridDom);
+    containerGridDom.innerHTML = '';
+    
+    for( let i = 1; i <= 100; i++ ) {
+    
+        const square = generateSquare();
+        
+        square.addEventListener('click',
+            function (){
+                this.classList.toggle('clicked');
+            }
+        );
+    
+        containerGridDom.append(square);
+    }
+
+    title.classList.remove('show');
+    title.classList.add('hidden');
 
 });
 
